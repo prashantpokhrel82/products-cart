@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Product from "../product/Product";
 import { useSelector, useDispatch } from "react-redux";
+import { calculateTotal } from "../../features/cart/cartSlice";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const { cartItems, amount, total } = cart;
+  const dispatch = useDispatch();
+  const { cartItems, total } = cart;
+
+  useEffect(() => {
+    dispatch(calculateTotal());
+  }, [cartItems]);
+
   return (
     <Wrapper>
       <h4>Cart</h4>
@@ -13,6 +20,7 @@ const Cart = () => {
       {cartItems.map((product) => (
         <Product key={product.id} product={product} />
       ))}
+      <h4>Total: ${total}</h4>
     </Wrapper>
   );
 };
@@ -25,6 +33,7 @@ const Wrapper = styled.div`
   border-radius: 8px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   padding: 1rem;
+  margin: 5rem auto;
 
   h4 {
     font-weight: 500;

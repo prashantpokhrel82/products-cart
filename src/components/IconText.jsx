@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const IconText = ({ icon, text, color }) => {
+const IconText = ({ icon, text, color, onClick }) => {
   return (
-    <Wrapper color={color}>
+    <Wrapper color={color} onClick={() => onClick()}>
       {icon}
       <span>{text}</span>
     </Wrapper>

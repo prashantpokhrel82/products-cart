@@ -3,8 +3,13 @@ import styled from "styled-components";
 import { AiOutlineMinus, AiOutlinePlus, AiFillHeart } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import IconText from "../IconText";
+import { useSelector, useDispatch } from "react-redux";
+import { increase, decrease, deleteItem } from "../../features/cart/cartSlice";
 
 const Product = ({ product }) => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <div className="product">
@@ -44,18 +49,29 @@ const Product = ({ product }) => {
                 </select>
               )}
               <button className="indec">
-                <AiOutlineMinus onClick={() => console.log("decrease")} />
+                <AiOutlineMinus
+                  onClick={() => dispatch(decrease(product?.id))}
+                />
                 <span className="amount">{product?.amount}</span>
-                <AiOutlinePlus onClick={() => console.log("increase")} />
+                <AiOutlinePlus
+                  onClick={() => dispatch(increase(product?.id))}
+                />
               </button>
             </div>
           </div>
           <div className="right">
-            <p className="total-price">${product?.price}</p>
+            <p className="total-price">
+              ${(product?.price * product?.amount).toFixed(2)}
+            </p>
             <div className="bottom">
               <IconText icon={<AiFillHeart />} text="Save" color="#ff642f" />
               <div className="separator" />
-              <IconText icon={<MdDelete />} text="Delete" color="#d22b2b" />
+              <IconText
+                icon={<MdDelete />}
+                text="Delete"
+                color="#d22b2b"
+                onClick={() => dispatch(deleteItem(product?.id))}
+              />
             </div>
           </div>
         </div>
