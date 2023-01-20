@@ -1,6 +1,5 @@
 import "./App.css";
 import Cart from "./components/cart/Cart";
-import { useSelector, useDispatch } from "react-redux";
 
 function App() {
   return (

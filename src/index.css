@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 
 *,
 *::before,
@@ -14,7 +14,6 @@ html {
 
 :root {
   --font-body: "Inter", sans-serif;
-  --font-heading: "Playfair Display", sans-serif;
 
   --color-primary-semitransparent: rgba(255 100 47 / 0.5);
 
@@ -43,14 +42,6 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   background: var(--color-medium-gray);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: var(--font-heading);
 }
 
 a {

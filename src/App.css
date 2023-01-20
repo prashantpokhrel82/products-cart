@@ -38,6 +38,21 @@
   background: var(--color-primary-variant);
 }
 
+.line {
+  width: 100%;
+  border-radius: 1px;
+  height: 2px;
+  background: var(--color-medium-gray);
+  margin: 1rem 0;
+}
+
+.separator {
+  width: 2px;
+  height: 15px;
+  background: var(--color-medium-gray);
+  margin: 0 1rem;
+}
+
 @media screen and (max-width: 900px) {
   .section__padding {
     padding: 3rem;
