@@ -52,4 +52,8 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;

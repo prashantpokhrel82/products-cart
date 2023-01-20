@@ -11,7 +11,7 @@ const Product = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <Wrapper>
+    <Wrapper image={product?.thumbnail}>
       <div className="product">
         <div className="product__image">
           <img src={product?.thumbnail} alt={product?.name} />
@@ -165,6 +165,7 @@ const Wrapper = styled.div`
 
   .selection {
     display: flex;
+    flex-direction: row;
     gap: 0.5rem;
   }
 
@@ -206,5 +207,36 @@ const Wrapper = styled.div`
   .total-price {
     font-size: 1.6rem;
     font-weight: 600;
+  }
+
+  @media (max-width: 1280px) {
+    .selection {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 900px) {
+    .product__details {
+      flex-direction: column;
+    }
+
+    .right {
+      gap: 2rem;
+    }
+  }
+  @media (max-width: 700px) {
+    .product {
+      flex-direction: column;
+    }
+
+    .product__image {
+      height: 300px;
+      width: 250px;
+    }
+
+    .right,
+    .left,
+    .selection {
+      align-items: center;
+    }
   }
 `;

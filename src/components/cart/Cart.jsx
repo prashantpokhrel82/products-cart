@@ -20,7 +20,9 @@ const Cart = () => {
       {cartItems.map((product) => (
         <Product key={product.id} product={product} />
       ))}
-      <h4>Total: ${total}</h4>
+      <h4 className="total">
+        Total: <span>${total}</span>
+      </h4>
     </Wrapper>
   );
 };
@@ -37,5 +39,21 @@ const Wrapper = styled.div`
 
   h4 {
     font-weight: 500;
+  }
+
+  .total {
+    margin: 2rem 0;
+    span {
+      color: var(--color-dark-gray);
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
+  @media (max-width: 700px) {
+    width: 90%;
   }
 `;
